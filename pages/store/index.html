@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="pages/store/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+  <title>B A P E</title>
+</head>
+
+<body>
+  <div id="textareawrite">
+    <span>Escreva sua mensagem</span>
+    <textarea id="ticket-content" name="ticket-content"
+      rows="5" cols="33"></textarea>
+      <button id="send-ticket">Enviar</button>
+      <button id="cancel-ticket">Cancelar</button>
+  </div>
+  <div id="container">
+    <header>
+      <span>B A</span>
+      <img id="logo"
+        src="https://www.vippng.com/png/full/7-73525_blue-bape-camo-tumblr-bape-logo-transparent-background.png"
+        alt="Bape logo">
+      <span>P E</span>
+    </header>
+    <div id="content">
+      <span id="personal-text"></span>
+      <button type='button' id="ticket-button">Ticket</button>
+      <div id="ticket">
+        
+      </div>
+      <div id="placeHolder"></div>
+    </div>
+    <div>
+      <button id="logout-button">Logout</button>
+    </div>
+
+    <script type="text/javascript" src="../../qrcode.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="/pages/store/script.js"></script>
+  </div>
+</body>
+
+</html>
