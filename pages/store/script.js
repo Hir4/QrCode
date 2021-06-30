@@ -1,68 +1,80 @@
 $(document).ready(() => {
-  var typeNumber = 4;
-  var errorCorrectionLevel = 'L';
-  var qr = qrcode(typeNumber, errorCorrectionLevel);
-  qr.addData('Hi!');
-  qr.make();
-  $("#placeHolder").html(qr.createImgTag());
 
   $("#logout-button").on("click", function () {
-    window.location.replace("/");
+    window.location.replace("/loginpage");
   });
 
-  $("#ticket-button").on("click", function () {
-    $("#textareawrite").css('display', 'flex');
+  $("#more-event-button").on("click", function () {
+    window.location.replace("/client");
   });
 
-  $("#cancel-ticket").on("click", function () {
-    $("#textareawrite").css('display', 'none');
+  $("#back-page").on("click", function () {
+    $("#event-info-area").css('display', 'none');
   });
 
-  $("#send-ticket").on("click", function () {
-    let ticketContent = $("#ticket-content").val();
-    $.ajax({
-      url: "/ticket",
-      type: "POST",
-      data: { ticketContent: ticketContent },
-      success: function (data) {
-        if (data.includes("/") === true) {
-          window.location.replace(`${data}`)
-          return true;
-        }
-        const newData = [data[data.length - 1]];
-        newData.map(dataContent => {
-          $("#ticket").append(
-            ` <div class="write-ticket">
-            <span class="content-ticket">${dataContent.content}</span>
-            <span class="content-ticket" id="writer-name">${dataContent.owner}</span>
+  $.ajax({
+    url: "/eventboughtcards",
+    type: "GET",
+    data: {},
+    success: function (data) {
+      // if (data === "/loginpage") {
+      //   window.location.replace(`${data}`);
+      //   return true;
+      // }
+      for (let key in data) {
+        $("#ticket").append(
+          `  <div class="write-ticket" id="event-${data[key].eventName}" name="${data[key].eventName}">
+            <span class="content-ticket">${data[key].eventName}</span>
+            <span class="content-ticket" >${data[key].eventDescription}</span>
+            <span class="content-ticket">${data[key].eventDate}</span>
+            <span class="content-ticket">${data[key].eventPlace}</span>
+            <button class="show-qrcode-button" name="${data[key].eventName}">QRCode</button>
+            <button class="cancel-event-button" name="${data[key].eventName}">Cancel purchase</button>
           </div>`
-          );
-        });
-        $("#ticket-content").val("");
-        $("#textareawrite").css('display', 'none');
+        )
+      }
+    }
+  });
+
+  $(document).on('click', '.show-qrcode-button', function () {
+    const eventName = $(this).attr("name");
+    $("#event-info-area").css('display', 'flex');
+    $.ajax({
+      url: "/sendeventboughtcards",
+      type: "POST",
+      data: { eventName: eventName },
+      success: function (data) {
+        // if (data === "/loginpage") {
+        //   window.location.replace(`${data}`);
+        //   return true;
+        // }
+        var typeNumber = 0;
+        var errorCorrectionLevel = 'L';
+        var qr = qrcode(typeNumber, errorCorrectionLevel);
+        // qr.addData(`https://www.alphaedtech.org.br`);
+        qr.addData(`http://localhost:8080/confirm/?user=${data}&event=${eventName}`);
+        qr.make();
+        $("#placeHolder").html(qr.createImgTag());
       }
     });
   });
 
-  $.ajax({
-    url: "/ticket",
-    type: "GET",
-    data: {},
-    success: function (data) {
-      if (data.includes("/") === true) {
-        window.location.replace(`${data}`);
-        return true;
+  $(document).on('click', '.cancel-event-button', function () {
+    const eventName = $(this).attr("name");
+    $(`#event-${eventName}`).remove();
+
+    $.ajax({
+      url: "/cancelevent",
+      type: "POST",
+      data: { eventName: eventName },
+      success: function (data) {
+        if (data === "/loginpage") {
+          window.location.replace(`${data}`);
+          return true;
+        }
       }
-      $("#personal-text").html(`Deixe um bilhete ${data[0].owner}`);
-      data.map(dataContent => {
-        $("#ticket").append(
-          ` <div class="write-ticket">
-          <span class="content-ticket">${dataContent.content}</span>
-          <span class="content-ticket" id="writer-name">${dataContent.owner}</span>
-        </div>`
-        )
-      })
-    }
+    });
   });
+
 });
 

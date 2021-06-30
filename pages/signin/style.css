@@ -3,7 +3,7 @@ html{
   height: 100%;
 }
 body{
-  background-image: url("https://cdn.hipwallpaper.com/i/57/12/qHCZ1W.jpg");
+  background-image: url("../../public/img/fest2.png");
   background-repeat:no-repeat;
   background-size:cover;
   margin: 0;
@@ -18,43 +18,58 @@ body{
   justify-content:center;
   width: 50%;
   height: 100%;
-  background-color: hsla(0, 0%, 10%, 0.95);
+  background-color: hsla(0, 0%, 0%, 0.6);
 }
-form{
+#container img{
+  width: 10vw;
+  margin-bottom: 3vh;
+}
+#content-form{
   display: flex;
   flex-direction:column;
-}
-input{
-  width: 300px;
-  height: 30px;
-  border: none;
-  margin: 1vw 0;
-}
-label{
-  color: white;
+  justify-content:center;
+  text-align: left;
+  color: hsl(356, 99%, 75%);
   font-size: 18px;
   font-family: 'Staatliches';
 }
-#signin-button{
-  width: 100px;
+input{
+  width: 200px;
   height: 30px;
+  border-radius: 50px;
+  border: none;
+  padding-left: 1vw;
+  margin: 1vw 0;
+}
+input:focus {
+  outline: none;
+}
+#signin-button{
+  width: 150px;
+  height: 35px;
   color: white;
-  font-size: 20px;
+  font-size: 24px;
   font-family: 'Staatliches';
-  background-color: #02DDF9;
+  background-color: hsl(356, 99%, 35%);
+  border-radius: 50px;
   border: none;
   cursor: pointer;
   margin: 1vh auto;
 }
-img{
-  width: 100px;
-  margin-bottom: 50px;
+#signin-button:hover{
+  background-color: hsla(356, 99%, 45%);
 }
 a{
-  color: white;
+  color: #ffffff;
   font-family: 'Staatliches';
   text-decoration: none;
+  font-size: 16px;
 }
 a:hover{
-  color:#02DDF9;
+  color:#B1010E;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

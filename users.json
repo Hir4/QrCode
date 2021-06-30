@@ -1,1 +1,11 @@
-{"users":[{"username":"rafael","email":"rafael@gmail.com","password":"$2b$10$Ha4GIYhnFcYefnxlyPra6OPVRRf8vzWpO17uGDDp0t.S8zfm3IlU2"}],"tickets":[{"owner":"rafael","content":"teste","token":"c/vORPZ5SmfFzEU4Akue0ydp+WHAfRgi44FJGd+y8uA=:rafael"}]}
+{
+  "1": {
+    "userName": "admin",
+    "name": "admin",
+    "docId": "123456789",
+    "email": "admin@gmail.com",
+    "password": "$2b$10$tL8l/3HyEHxuK26CSELhuecxoUg2ZR61HG8k8oM6Fq0vAzkm09VH2",
+    "class": "admin",
+    "active": "true"
+  }
+}

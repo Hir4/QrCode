@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+  <title>I B E N T O</title>
+</head>
+
+<body>
+  <div id="container">
+    <img src="../../public/logo/signin.svg" alt="Ibento logo">
+    <div id="content-form">
+      <label>Username</label>
+      <input type="text" name="user" id="user" required>
+      <label>Full name</label>
+      <input type="text" name="user" id="name" required>
+      <label>Social security number (CPF)</label>
+      <input type="text" name="user" id="cpf" required>
+      <label>Email</label>
+      <input type="email" name="email" id="email" required>
+      <label>Password</label>
+      <input type="password" name="password" id="password" required>
+      <label>Confirme password</label>
+      <input type="password" name="confirmpassword" id="confirmpassword" required>
+      <div id="err-msg"></div>
+      <button id="signin-button">Sign in</button>
+    </div>
+    <a href="/loginpage">Have an account? Login</a>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
