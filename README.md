@@ -45,6 +45,6 @@ npm install bcrypt
 ## :checkered_flag: Running
 
 ```bash
-#Choose the port you want to start (default:80), then just run:
+#Choose the port you want to start (default: 8080), then just run:
 node app.js
 ```
