@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img align="center" width="300px" src="https://img-premium.flaticon.com/png/512/1199/premium/1199747.png?token=exp=1627941522~hmac=aa94c62890f1f4630a53d79881b0f551" alt="QRCode Icon" />
+  <img align="center" width="300px" src="https://cdn.pixabay.com/photo/2021/06/12/21/33/qr-code-6331792_960_720.png" alt="QRCode Icon" />
 </div>
 
 <h1 align="center">QRCode</h1>
